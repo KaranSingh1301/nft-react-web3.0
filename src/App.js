@@ -12,7 +12,11 @@ function App() {
 
   useEffect(()=>{
     const getNfts = async () =>{
-      const openseaData = await axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x9af829B22ba7ad573fbB6D836d1155DF09288105&order_direction=asc')
+                                  
+      const openseaData = await axios.get(
+        'https://testnets-api.opensea.io/assets?asset_contract_address=0x9af829B22ba7ad573fbB6D836d1155DF09288105&order_direction=asc',
+      { crossdomain: true }
+      )
       console.log('here')
       console.log(openseaData.data.assets)
       setPunkListData(openseaData.data.assets)
