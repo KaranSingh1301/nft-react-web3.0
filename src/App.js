@@ -15,8 +15,9 @@ function App() {
                                   
       const openseaData = await axios.get(
         'https://testnets-api.opensea.io/assets?asset_contract_address=0x9af829B22ba7ad573fbB6D836d1155DF09288105&order_direction=asc',
-      { crossdomain: true }
-      )
+        { 
+          headers: {'Access-Control-Allow-Origin': ' *', 'Access-Control-Allow-Headers': 'Content-Type'} 
+      })
       console.log('here')
       console.log(openseaData.data.assets)
       setPunkListData(openseaData.data.assets)
